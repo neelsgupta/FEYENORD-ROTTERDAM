@@ -4,20 +4,23 @@ import { ProductDetails } from './pages/ProductDetails';
 
 
 const Routes = () => {
-    return (<Router>
-        <Switch>
-            <Route path="/ProductOverview">
-                <span>ProductOverview</span>
-            </Route>
-            <Route path="/ProductDetails">
-                <span>ProductDetails</span>
-                <ProductDetails></ProductDetails>
-            </Route>
-            <Route path="/">
-                <span>home</span>
-            </Route>
-        </Switch>
-    </Router>)
+    return (
+        <Router>
+            <Switch>
+                <Route path="/ProductOverview">
+                    <span>ProductOverview</span>
+                </Route>
+                <Route path="/ProductDetails">
+                    <span>ProductDetails</span>
+                    <ProductDetails></ProductDetails>
+                </Route>
+                <Route path="/">
+                    <span>home</span>
+                </Route>
+            </Switch>
+        </Router>
+
+    )
 }
 
 export default Routes;
