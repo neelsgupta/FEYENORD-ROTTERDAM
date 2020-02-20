@@ -1,29 +1,45 @@
 
 import React from 'react';
-import { CSSObject } from 'styled-components';
+import styled from "styled-components";
+import Grid from '@material-ui/core/Grid';
+import Card from '@material-ui/core/Card';
+import {
+    CardContent,
+    Typography
+} from "@material-ui/core";
 
-const formStyle: CSSObject = {
-    background: '#ffffff',
-    border: '1px solid rgba(0,0,0,0.1)',
-    borderRadius: 3,
-    boxShadow: '0 1px 2px rgba(0,0,0,.05)',
-    width: '50%',
-    margin: 20,
-    padding: 20,
-};
+const CardForm = styled.div`
+  height: auto;
+  width: auto;
+  text-align: left;
+`;
 
 export function ProductDetailsBox() {
     return (
-        <div style={formStyle}>
+        <CardForm >
             <h1>Produktdetails</h1>
-            <h3>Selected product group:</h3>
-
-            <>
-                <h3>Aaaaa:</h3>
-
-            </>
-
             <hr></hr>
-        </div>
+            <h3>Selected product group</h3>
+            <hr></hr>
+            <Grid container>
+                <Grid item xs={4}>
+                    <h3>Aaaaa:</h3>
+                </Grid>
+                <Grid item xs={8}>
+                    <h3>xxxxxx</h3>
+                </Grid>
+                <hr></hr>
+            </Grid>
+            <Card>
+                <CardContent>
+                    <Typography>
+                        Other group products
+                    </Typography>
+                    <Typography>
+                        -Product Name 1
+                    </Typography>
+                </CardContent>
+            </Card>
+        </CardForm>
     )
 }
