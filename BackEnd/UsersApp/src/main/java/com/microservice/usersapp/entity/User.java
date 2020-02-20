@@ -2,16 +2,30 @@ package com.microservice.usersapp.entity;
 
 import java.util.List;
 
+import javax.annotation.Generated;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
 public class User {
 	
+	@GeneratedValue
+	@Id
+	private Long id;
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 	private String name;
 	private Gender gender;
 	
-	@OneToMany
+	@OneToMany(mappedBy="user")
 	private List<Account> accounts;
 	
 	@OneToMany
