@@ -10,7 +10,6 @@ const ProductOverview = () => {
         return response.json();
       })
       .then(data => {
-        console.log(data);
         setAccountData(data);
       });
   }, []);
