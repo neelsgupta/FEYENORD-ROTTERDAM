@@ -1,21 +1,23 @@
 import React from 'react';
-import { BrowserRouter as Router,Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { ProductDetails } from './pages/ProductDetails';
 
 
 const Routes = () => {
     return (<Router>
         <Switch>
             <Route path="/ProductOverview">
-              <span>ProductOverview</span>
+                <span>ProductOverview</span>
             </Route>
             <Route path="/ProductDetails">
-            <span>ProductDetails</span>
+                <span>ProductDetails</span>
+                <ProductDetails></ProductDetails>
             </Route>
             <Route path="/">
-            <span>home</span>
+                <span>home</span>
             </Route>
-          </Switch>
-          </Router>)
+        </Switch>
+    </Router>)
 }
 
 export default Routes;
