@@ -6,10 +6,14 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.MappedSuperclass;
+import javax.persistence.OneToMany;
 
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
-@EntityScan
+@Entity
 public class Account {
 	
 	@Id
@@ -22,6 +26,19 @@ public class Account {
 	
 	private String name;
 	
+	@ManyToOne
+	@JoinColumn(name="user")
+	private User user; 
+	
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	@OneToMany
 	private List<ChildAccount> childAccounts;
 
 	public long getId() {
