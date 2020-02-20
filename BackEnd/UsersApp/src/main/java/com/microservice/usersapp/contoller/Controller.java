@@ -20,7 +20,7 @@ public class Controller {
 	
 	private static final String GET_USER_ACCOUNT = "user/{userId}/accounts";
 	
-	private static final String GET_USER_SUB_ACCOUNT = "user/{userId}/account/{accountId}/{subAccount}";
+	private static final String GET_USER_SUB_ACCOUNT = "user/{userId}/account/{accountId}/{subAccountId}";
 	
 	
 	private Logger log = LoggerFactory.getLogger(this.getClass());
@@ -37,10 +37,10 @@ public class Controller {
 	
 
 	@GetMapping(GET_USER_SUB_ACCOUNT)
-	public ResponseEntity<ChildAccount> getAccount(@PathVariable(value = "userId") long userId, @PathVariable(value = "accountId") long accountId, @PathVariable(value = "childAccountId") long childAccountId){
+	public ResponseEntity<ChildAccount> getAccount(@PathVariable(value = "userId") long userId, @PathVariable(value = "accountId") long accountId, @PathVariable(value = "subAccountId") long subAccountId){
 		log.info("entering to getAccount endpoint.");
 		Account account = accountService.getAccountDetails(accountId);
-		ChildAccount childAccount = accountMapper.mapToChildAccount(account, accountId, childAccountId);
+		ChildAccount childAccount = accountMapper.mapToChildAccount(account, accountId, subAccountId);
 		
 		ResponseEntity<ChildAccount> response;
 		
