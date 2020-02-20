@@ -2,7 +2,6 @@ package com.microservice.usersapp.entity;
 
 import java.util.List;
 
-import javax.annotation.Generated;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -11,6 +10,10 @@ import javax.persistence.OneToMany;
 @Entity
 public class User {
 	
+	public User() {
+		super();
+	}
+
 	@GeneratedValue
 	@Id
 	private Long id;
