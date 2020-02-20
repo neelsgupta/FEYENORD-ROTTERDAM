@@ -20,7 +20,7 @@ public class Controller {
 	
 	private static final String GET_USER_ACCOUNT = "user/{userId}/accounts";
 	
-	private static final String GET_USER_SUB_ACCOUNT = "user/{userId}/account/{accountId}/{childAccountId}";
+	private static final String GET_USER_SUB_ACCOUNT = "user/{userId}/account/{accountId}/{subAccount}";
 	
 	
 	private Logger log = LoggerFactory.getLogger(this.getClass());
@@ -32,8 +32,7 @@ public class Controller {
 	public  AccountService accountService;
 	
 	@Autowired
-	public  AccountMapper accountMapper;
-	
+	public AccountMapper accountMapper;
 	
 	
 
@@ -42,7 +41,6 @@ public class Controller {
 		log.info("entering to getAccount endpoint.");
 		Account account = accountService.getAccountDetails(accountId);
 		ChildAccount childAccount = accountMapper.mapToChildAccount(account, accountId, childAccountId);
-		
 		
 		ResponseEntity<ChildAccount> response;
 		
@@ -57,7 +55,23 @@ public class Controller {
 		return response;
 	}
 	
-	
+	@GetMapping(GET_USER_ACCOUNT)
+	public ResponseEntity<User> getAccount(@PathVariable(value = "userId") long userId){
+		log.info("entering to getAccount endpoint.");
+		User userAccount = userService.getUser1(userId);
+		
+		ResponseEntity<User> response;
+		
+		if (userAccount == null) {
+			response = ResponseEntity.notFound().build();
+	    } else {
+	    	response = ResponseEntity.ok(userAccount);
+	    }
+		
+		log.info("exiting to getAccount endpoint.");
+		
+		return response;
+	}
 	
 	
 }
